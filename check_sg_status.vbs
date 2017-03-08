@@ -12,6 +12,8 @@ Dim strSQL
 DIM strHQServer
 Dim row
 Dim SQLcn, SQLrs, i
+strAdminUser = "databaseusername" 'these credentials are to connect to the monitorind database and are probably proprietory but you can find them out
+strAdminPassword = "databasepassword"
 
 strCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890"
 intLength = 16
@@ -1146,8 +1148,8 @@ Sub SQLExecute (strSQL)
     strHQServer = ReadIni("stConfig.ini","parameters","shoretelhq")
 
     SQLcn.connectionString = "Driver={"&strODBCDriver&"}; Server="& strHQServer &"; Port=4308; " & _
-                       "Database=shorewarestatus;User=shoreadmin;" & _
-                       "Password=passwordshoreadmin;"&_
+                       "Database=shorewarestatus;User="&strAdminUser&";" & _
+                       "Password="&strAdminPassword&";"&_
                        "option=2;"&_
                        "AllowUserVariables=True;"
     ' Open the connection to the database
