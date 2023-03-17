@@ -11,3 +11,29 @@ I configure Nagios to accept PASSIVE checks from the NCPA agent since Nagios doe
 There's a function in the script to take an inventory of your ShoreGear switches and build an INI file that can be used by the NCPA agent to execute checks against your hardware using the script.
 
 Anyway, here's the repository as is. Again, I'm afraid I cannot offer much technical support, but keep an eye out of some further documentation on getting it running.
+
+
+
+
+
+
+#Different ShoreTel/Mitel admin here.
+
+I spent a few hours implementing this ShoreTel/Mitel Connect monitoring script and thought it would be nice to add to the readme.
+
+The script looks for a stconfig.ini file in the C:\Program Files (x86)\Nagios\NCPA\plugins folder on the server where the server with the shoreware database.
+
+Below is an example of what is in my version of the stconfig.ini file.
+
+   [nrdp]
+   token=<your token here>
+
+   [parameters]
+   odbc=MySQL ODBC Shoreware Driver
+   shoretelhq=127.0.0.1
+   strConfigfile=.\stdevices.ini
+
+   [choices]
+   intDChannelDown=0
+
+This is not a complete copy of the file, but what I have run across so far. 
